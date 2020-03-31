@@ -33,8 +33,9 @@ namespace S3CSVParser
                     .Input(t => t.Client, data => awsClient)
                     .Input(t => t.BucketName, data => bucketName)
                     .Input(t => t.DirectoryList, data => data.DirectoryList)
+                    .Output(data => data.DirectoryContent, step => step.Output)
                 )
-                    .OnError(WorkflowCore.Models.WorkflowErrorHandling.Retry, TimeSpan.FromSeconds(5))
+                    .OnError(WorkflowCore.Models.WorkflowErrorHandling.Compensate)
                 .Then(context => Console.WriteLine("End"));
         }
     }
