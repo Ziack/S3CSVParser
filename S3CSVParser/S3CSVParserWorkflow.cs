@@ -14,9 +14,9 @@ namespace S3CSVParser
         public void Build(IWorkflowBuilder<S3CSVParserData> builder)
         {
 
-            var awsAccessKeyId = "AKIAIEV6VE3ZC2ZXS4IQ";
-            var awsAccessKeySecret = "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";
-            var bucketName = "avature-ftp-to-s3";
+            var awsAccessKeyId = "";
+            var awsAccessKeySecret = "";
+            var bucketName = "";
 
             var awsClient = new AmazonS3Client(awsAccessKeyId, awsAccessKeySecret, RegionEndpoint.USEast2);
 
